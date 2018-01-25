@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+
+//Route::post('register', 'API\PassportController@register');
 
 Route::get('/home', 'HomeController@index')->name('home');
