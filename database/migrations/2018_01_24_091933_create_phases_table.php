@@ -15,6 +15,12 @@ class CreatePhasesTable extends Migration
     {
         Schema::create('phases', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('status');
+            $table->string('description');
+            $table->foreign('project_id')
+                ->references('id')
+                ->on('projects')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
