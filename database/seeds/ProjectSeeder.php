@@ -15,24 +15,24 @@ class ProjectSeeder extends Seeder
             [
                 'id' => 1,
                 'name' => 'lkjnl',
-                'submission_date' => 2018-01-31,
-                'received_date' => 2018-01-19,
+                'submission_date' => \Carbon\Carbon::now(),
+                'received_date' => \Carbon\Carbon::now(),
                 'description' => 'anvs ssbvsda',
                 'account_id' => 1
             ],
             [
                 'id' => 2,
                 'name' => 'jhnl',
-                'submission_date' => 2018-02-05,
-                'received_date' => 2018-01-19,
+                'submission_date' => \Carbon\Carbon::now(),
+                'received_date' => \Carbon\Carbon::now(),
                 'description' => 'kaj jad aa',
                 'account_id' => 2
             ],
             [
                 'id' => 3,
                 'name' => 'ewiiwe',
-                'submission_date' => 2018-02-15,
-                'received_date' => 2018-01-11,
+                'submission_date' => \Carbon\Carbon::now(),
+                'received_date' => \Carbon\Carbon::now(),
                 'description' => 'jah vabvsda',
                 'account_id' => 3
             ]

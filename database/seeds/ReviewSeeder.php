@@ -16,19 +16,19 @@ class ReviewSeeder extends Seeder
                 'id' => 1,
                 'description' => 'kaj jad aa',
                 'rating' => 4.5,
-                'account_id' => 1
+                'phase_id' => 1
             ],
             [
                 'id' => 2,
                 'description' => 'kad jad aa',
                 'rating' => 3.5,
-                'account_id' => 2
+                'phase_id' => 2
             ],
             [
                 'id' => 3,
                 'description' => 'kaj jaadd aa',
                 'rating' => 5.0,
-                'account_id' => 3
+                'phase_id' => 3
             ]
         ]);
     }
