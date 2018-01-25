@@ -19,10 +19,13 @@ class CreateProjectsTable extends Migration
             $table->date('submission_date');
             $table->date('received_date');
             $table->string('description');
+
+            $table->unsignedInteger('account_id');
             $table->foreign('account_id')
                 ->references('id')
                 ->on('accounts')
                 ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

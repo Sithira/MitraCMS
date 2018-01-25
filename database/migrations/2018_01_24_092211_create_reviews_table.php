@@ -17,10 +17,13 @@ class CreateReviewsTable extends Migration
             $table->increments('id');
             $table->string('description');
             $table->float('rating');
+
+            $table->unsignedInteger('user_id');
             $table->foreign('phase_id')
                 ->references('id')
                 ->on('phases')
                 ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
