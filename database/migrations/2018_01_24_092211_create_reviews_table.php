@@ -18,7 +18,7 @@ class CreateReviewsTable extends Migration
             $table->string('description');
             $table->float('rating');
 
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('phase_id');
             $table->foreign('phase_id')
                 ->references('id')
                 ->on('phases')
