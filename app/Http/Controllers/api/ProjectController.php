@@ -11,7 +11,7 @@ use Validator;
 class ProjectController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get all projects belong to the authenticated user.
      *
      * @return \Illuminate\Http\Response
      */
@@ -27,7 +27,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Add a new project.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -66,7 +66,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get a single project
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -103,7 +103,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the project details
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -160,7 +160,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete the project
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

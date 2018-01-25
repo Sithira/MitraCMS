@@ -23,5 +23,25 @@ Route::group(['middleware' => 'auth:api'], function()
 {
     Route::post('get-details', 'api\LoginController@getDetails');
 
+    Route::group(['prefix' => '/projects/'], function () {
+
+        Route::get('/', 'api\ProjectController@index');
+
+        Route::get('/{project}', 'api\ProjectController@show');
+
+        Route::post('/', 'api\ProjectController@store');
+
+        Route::delete('/{project}', 'api\ProjectController@store');
+
+        Route::group(['prefix' => '/{project}/phase'], function() {
+
+            Route::get('/', 'api\PhaseController@index');
+
+            Route::get('/{phase}', 'api\PhaseController@index');
+
+        });
+
+    });
+
     Route::post('logout', 'api\LoginController@logout');
 });
