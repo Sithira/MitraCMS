@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
 use Auth;
 use Illuminate\Http\Request;
@@ -29,10 +30,10 @@ class ProjectController extends Controller
     /**
      * Add a new project.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ProjectRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProjectRequest $request)
     {
         // todo validate
 
@@ -105,11 +106,11 @@ class ProjectController extends Controller
     /**
      * Update the project details
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param ProjectRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectRequest $request, $id)
     {
         //todo: access check and validation.
 

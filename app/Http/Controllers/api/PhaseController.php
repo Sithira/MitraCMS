@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Http\Requests\PhaseRequest;
 use App\Models\Phase;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -29,13 +30,13 @@ class PhaseController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Add a new phase to the Project
      *
      * @param Project $project
-     * @param  \Illuminate\Http\Request $request
+     * @param PhaseRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Project $project, Request $request)
+    public function store(Project $project, PhaseRequest $request)
     {
 
         // todo: validate the request
@@ -61,7 +62,7 @@ class PhaseController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get details of a specific phase
      *
      * @param Phase $phase
      * @return \Response
@@ -94,14 +95,14 @@ class PhaseController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
+     * Update a phase
      *
      * @param Project $project
      * @param Phase $phase
-     * @param  \Illuminate\Http\Request $request
+     * @param PhaseRequest $request
      * @return \Response
      */
-    public function update(Project $project, Phase $phase, Request $request)
+    public function update(Project $project, Phase $phase, PhaseRequest $request)
     {
 
         // todo: validate.
@@ -142,7 +143,7 @@ class PhaseController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove a phase
      *
      * @param Project $project
      * @param Phase $phase
@@ -174,7 +175,7 @@ class PhaseController extends Controller
 
     }
 
-    public function payForPhase(Project $project, Phase $phase, Request $request)
+    public function payForPhase(Project $project, Phase $phase, PhaseRequest $request)
     {
 
         if ($phase != null)

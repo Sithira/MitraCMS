@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Http\Requests\AccountRequest;
 use App\Models\Account;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -27,10 +28,10 @@ class AccountController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param AccountRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AccountRequest $request)
     {
         // todo: validate
 
@@ -83,11 +84,11 @@ class AccountController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param AccountRequest $request
      * @param Account $account
      * @return \Response
      */
-    public function update(Request $request, Account $account)
+    public function update(AccountRequest $request, Account $account)
     {
         // todo: validate
 
