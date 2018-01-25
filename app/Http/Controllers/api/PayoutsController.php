@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Models\Payment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PayoutsController extends Controller
 {
@@ -14,7 +17,13 @@ class PayoutsController extends Controller
      */
     public function index()
     {
-        //
+        $payouts = Auth::user()
+            ->payouts;
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $payouts
+        ]);
     }
 
     /**
@@ -36,6 +45,28 @@ class PayoutsController extends Controller
     public function store(Request $request)
     {
         //
+        $payout = Payment::create($request->all());
+
+        $data = null;
+
+        if($payout == null)
+        {
+            $data = [
+                'status' => 'error',
+                'message' => 'Project not found',
+                'code' => 400
+            ];
+        }
+        else
+        {
+            $data = [
+                'status' => 'success',
+                'data' => $payout,
+                'code' => 200
+            ];
+        }
+
+        return response()->json($data, $data['code']);
     }
 
     /**
@@ -46,7 +77,32 @@ class PayoutsController extends Controller
      */
     public function show($id)
     {
-        //
+        //get the payments belongs to the User
+        $payout = Auth::user()
+            ->payouts
+            ->where('id',$id)
+            ->first();
+
+        $data = null;
+
+        if($payout == null)
+        {
+            $data = [
+                'status' => 'error',
+                'message' => 'Project not found',
+                'code' => 400
+            ];
+        }
+        else
+        {
+            $data = [
+                'status' => 'success',
+                'data' => $payout,
+                'code' => 200
+            ];
+        }
+
+        return response()->json($data,$data['code']);
     }
 
     /**

@@ -43,7 +43,7 @@ class ProjectController extends Controller
         $data = null;
 
         // check for the variable instance
-        if ($project != null)
+        if ($project == null)
         {
             // build the respective response.
             $data = [

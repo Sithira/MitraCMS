@@ -16,7 +16,7 @@ class CreatePhasesTable extends Migration
         Schema::create('phases', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('status');
+            $table->boolean('status')->default(0);
             $table->string('description');
 
             $table->unsignedInteger('project_id');
