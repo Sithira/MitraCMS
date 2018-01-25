@@ -38,17 +38,7 @@ class Payment extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class, 'employee_id');
-    }
-
-    /**
-     * Get the resource manager who created the payment.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function resource_manager()
-    {
-        return $this->belongsTo(User::class, 'resource_manager_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /**
