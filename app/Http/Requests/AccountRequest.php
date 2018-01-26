@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
 class AccountRequest extends FormRequest
 {
     /**
@@ -29,4 +27,5 @@ class AccountRequest extends FormRequest
             'description' => 'required|min:5|max:150'
         ];
     }
+
 }

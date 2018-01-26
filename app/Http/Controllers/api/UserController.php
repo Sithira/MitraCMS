@@ -16,9 +16,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('roles')->all();
+        $users = User::with('roles')->get();
 
-        return response()->json($users, 200);
+        return response()->json([
+            'status' => 'success',
+            'data' => $users
+        ], 200);
     }
 
     /**
@@ -30,6 +33,11 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
 
+        if ($request->ajax())
+        {
+            return response()->json(true);
+        }
+
         // todo validate
 
         // make the user with the given data
@@ -39,7 +47,7 @@ class UserController extends Controller
         $data = null;
 
         // check for the variable instance
-        if ($user != null)
+        if ($user == null)
         {
             // build the respective response.
             $data = [
@@ -53,7 +61,7 @@ class UserController extends Controller
             $data = [
                 'status' => 'success',
                 'data' => $user,
-                'code' => 200
+                'code' => 201
             ];
         }
 
@@ -69,6 +77,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+
         $user = User::with([
             'roles', 'accounts', 'projects', 'payouts'
         ])->find($id);
@@ -84,7 +93,7 @@ class UserController extends Controller
         else
         {
             return response()->json([
-                'status' => 'error',
+                'status' => 'success',
                 'data' => $user,
                 'code' => 200
             ], 200);

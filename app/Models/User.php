@@ -111,4 +111,14 @@ class User extends Authenticatable
         return $phases;
     }
 
+    /**
+     * Hash the password on the fly
+     *
+     * @param $password
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
 }

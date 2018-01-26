@@ -24,11 +24,17 @@ class LoginController extends Controller
 
             $success['token'] = $user->createToken('mitra')->accessToken;
 
-            return response()->json(['status' => $success], 200);
+            return response()->json([
+                'status' => 'success',
+                'data' => $success,
+            ], 200);
         }
         else
         {
-            return response()->json(['status' => 'UnAuthenticated'], 401);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'unable to authenticate.'
+            ], 401);
         }
 
     }
