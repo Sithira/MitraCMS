@@ -17,6 +17,7 @@ class ProjectSeeder extends Seeder
                 'name' => 'lkjnl',
                 'submission_date' => \Carbon\Carbon::now(),
                 'received_date' => \Carbon\Carbon::now(),
+                'status' => 1,
                 'description' => 'anvs ssbvsda',
                 'account_id' => 1
             ],
@@ -25,6 +26,7 @@ class ProjectSeeder extends Seeder
                 'name' => 'jhnl',
                 'submission_date' => \Carbon\Carbon::now(),
                 'received_date' => \Carbon\Carbon::now(),
+                'status' => 1,
                 'description' => 'kaj jad aa',
                 'account_id' => 2
             ],
@@ -33,6 +35,7 @@ class ProjectSeeder extends Seeder
                 'name' => 'ewiiwe',
                 'submission_date' => \Carbon\Carbon::now(),
                 'received_date' => \Carbon\Carbon::now(),
+                'status' => 0,
                 'description' => 'jah vabvsda',
                 'account_id' => 3
             ]

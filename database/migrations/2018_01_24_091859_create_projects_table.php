@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->date('submission_date');
             $table->date('received_date');
+            $table->boolean('status')->default(0);
             $table->string('description');
 
             $table->unsignedInteger('account_id');

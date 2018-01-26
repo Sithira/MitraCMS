@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Models\Payment;
+use App\Models\Phase;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -119,13 +120,48 @@ class PayoutsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param Payment $payout
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Payment $payout)
     {
-        //
+        $data = null;
+
+        if($payout == null)
+        {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Payment not found',
+                'code' => 400
+            ]);
+        }
+        else
+        {
+            $payoutUpdate = $payout->update($request->all());
+
+            $data = null;
+
+            if ($payoutUpdate)
+            {
+                $data = [
+                    'status' => 'success',
+                    'data' => $payout,
+                    'code' => 200
+                ];
+            }
+            else
+            {
+                $data = [
+                    'status' => 'success',
+                    'message' => 'Payment couldnt be updated.',
+                    'code' => 400
+                ];
+            }
+        }
+
+        return response()->json($data, $data['code']);
     }
 
     /**
@@ -136,6 +172,34 @@ class PayoutsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $payout = Auth::user()
+            ->payout
+            ->where('id',$id)
+            ->first();
+
+        $data = null;
+
+        if ($payout == null)
+        {
+
+            // build the data
+            $data = [
+                'status' => 'error',
+                'code' => 400,
+                'message' => 'Payout not available'
+            ];
+
+        }
+        else
+        {
+            $data = [
+                'status' => 'success',
+                'code' => 200,
+                'message' => "Payout removed."
+            ];
+        }
+
+        // return the response.
+        return response()->json($data, $data['code']);
     }
 }

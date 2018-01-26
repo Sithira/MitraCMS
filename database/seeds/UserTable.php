@@ -38,22 +38,38 @@ class UserTable extends Seeder
         DB::table('users')->insert([
             [
                 'name' => "Sithia Munasinghe",
+                'dob' => \Carbon\Carbon::now(),
+                'address' => 'Rukmalgama,Kottawa',
+                'enrolled_year' => \Carbon\Carbon::now(),
+                'HR_rating' => 5,
                 'email' => 'sithiraac@gmail.com',
                 'password' => bcrypt('123123')
             ],
             [
                 'name' => "Sanura Wijayarathne",
+                'dob' => \Carbon\Carbon::now(),
+                'address' => 'Makubura,Kottawa',
+                'enrolled_year' => \Carbon\Carbon::now(),
+                'HR_rating' => 4,
                 'email' => 'sanu.wijay@gmail.com',
                 'password' => bcrypt('123123')
             ],
             [
                 'name' => "Dinusha Jayashan",
+                'dob' => \Carbon\Carbon::now(),
+                'address' => 'Kottawa',
+                'enrolled_year' => \Carbon\Carbon::now(),
+                'HR_rating' => 4,
                 'email' => 'dinusha.jayashan01@gmail.com',
                 'password' => bcrypt('123123')
             ],
             [
-                'name' => "Achala Jayashan",
-                'email' => 'dinusha.jayashan02@gmail.com',
+                'name' => "Achala Kavinda",
+                'dob' => \Carbon\Carbon::now(),
+                'address' => 'Thalawathugoda',
+                'enrolled_year' => \Carbon\Carbon::now(),
+                'HR_rating' => 5,
+                'email' => 'achala.kavinda@gmail.com',
                 'password' => bcrypt('123123')
             ]
         ]);
