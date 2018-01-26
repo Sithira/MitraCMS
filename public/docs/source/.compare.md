@@ -86,6 +86,209 @@ $.ajax(settings).done(function (response) {
 
 <!-- END_e0a8f1f3e33f828aba833636e81f969c -->
 
+<!-- START_da5727be600e4865c1b632f7745c8e91 -->
+## Get all the users in the database
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/api/users" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/users`
+
+`HEAD api/users`
+
+
+<!-- END_da5727be600e4865c1b632f7745c8e91 -->
+
+<!-- START_8f99b42746e451f8dc43742e118cb47b -->
+## Get all details of a user; in-depth
+
+> Example request:
+
+```bash
+curl -X GET "http://localhost/api/users/{user}" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+> Example response:
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+
+### HTTP Request
+`GET api/users/{user}`
+
+`HEAD api/users/{user}`
+
+
+<!-- END_8f99b42746e451f8dc43742e118cb47b -->
+
+<!-- START_12e37982cc5398c7100e59625ebb5514 -->
+## Add a new user to the database.
+
+> Example request:
+
+```bash
+curl -X POST "http://localhost/api/users" \
+-H "Accept: application/json" \
+    -d "name"="ut" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "POST",
+    "data": {
+        "name": "ut"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`POST api/users`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | Minimum: `6` Maximum: `100`
+
+<!-- END_12e37982cc5398c7100e59625ebb5514 -->
+
+<!-- START_23e684e4851557a8b058b188818dcb9d -->
+## Update a user specified.
+
+> Example request:
+
+```bash
+curl -X PATCH "http://localhost/api/users" \
+-H "Accept: application/json" \
+    -d "name"="eum" \
+
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "PATCH",
+    "data": {
+        "name": "eum"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`PATCH api/users`
+
+#### Parameters
+
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    name | string |  required  | Minimum: `6` Maximum: `100`
+
+<!-- END_23e684e4851557a8b058b188818dcb9d -->
+
+<!-- START_09a889ad3c7b5434f4d3fd3d31a924c3 -->
+## Remove a user from a database
+
+> Example request:
+
+```bash
+curl -X DELETE "http://localhost/api/users" \
+-H "Accept: application/json"
+```
+
+```javascript
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});
+```
+
+
+### HTTP Request
+`DELETE api/users`
+
+
+<!-- END_09a889ad3c7b5434f4d3fd3d31a924c3 -->
+
 <!-- START_7c0b7d3d0d31f5dd9b2ca9e2a7496106 -->
 ## Get all projects belong to the authenticated user.
 

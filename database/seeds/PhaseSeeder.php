@@ -15,21 +15,21 @@ class PhaseSeeder extends Seeder
             [
                 'id' => 1,
                 'name' => 'lkjnl',
-                'status' => 'aafa adad',
+                //'status' => 'aafa adad',
                 'description' => 'anvs ssbvsda',
                 'project_id' => 1
             ],
             [
                 'id' => 2,
                 'name' => 'sfjnl',
-                'status' => 'fvcxa adad',
+                //'status' => 'fvcxa adad',
                 'description' => 'aaas sda',
                 'project_id' => 2
             ],
             [
                 'id' => 3,
                 'name' => 'vssv',
-                'status' => 'awwea adad',
+                //'status' => 'awwea adad',
                 'description' => 'adssbvsda',
                 'project_id' => 3
             ]

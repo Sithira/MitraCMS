@@ -72,7 +72,7 @@ class User extends Authenticatable
     /**
      * Get all projects belongs to a user.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function projects()
     {

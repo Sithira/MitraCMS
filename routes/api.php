@@ -23,6 +23,21 @@ Route::group(['middleware' => 'auth:api'], function()
 {
     Route::post('get-details', 'api\LoginController@getDetails');
 
+    // User routes
+    Route::group(['prefix' => '/users/'], function () {
+
+        Route::get('/', 'api\UserController@index');
+
+        Route::get('/{user}', 'api\UserController@show');
+
+        Route::post('/', 'api\UserController@store');
+
+        Route::patch('/', 'api\UserController@update');
+
+        Route::delete('/', 'api\UserController@destroy');
+
+    });
+
     // projects routes
     Route::group(['prefix' => '/projects/'], function () {
 

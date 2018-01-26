@@ -95,6 +95,183 @@ $.ajax(settings).done(function (response) {
 <h3>HTTP Request</h3>
 <p><code>POST api/get-details</code></p>
 <!-- END_e0a8f1f3e33f828aba833636e81f969c -->
+<!-- START_da5727be600e4865c1b632f7745c8e91 -->
+<h2>Get all the users in the database</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/api/users" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/users</code></p>
+<p><code>HEAD api/users</code></p>
+<!-- END_da5727be600e4865c1b632f7745c8e91 -->
+<!-- START_8f99b42746e451f8dc43742e118cb47b -->
+<h2>Get all details of a user; in-depth</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET "http://localhost/api/users/{user}" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users/{user}",
+    "method": "GET",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/users/{user}</code></p>
+<p><code>HEAD api/users/{user}</code></p>
+<!-- END_8f99b42746e451f8dc43742e118cb47b -->
+<!-- START_12e37982cc5398c7100e59625ebb5514 -->
+<h2>Add a new user to the database.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST "http://localhost/api/users" \
+-H "Accept: application/json" \
+    -d "name"="ut" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "POST",
+    "data": {
+        "name": "ut"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST api/users</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>6</code> Maximum: <code>100</code></td>
+</tr>
+</tbody>
+</table>
+<!-- END_12e37982cc5398c7100e59625ebb5514 -->
+<!-- START_23e684e4851557a8b058b188818dcb9d -->
+<h2>Update a user specified.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X PATCH "http://localhost/api/users" \
+-H "Accept: application/json" \
+    -d "name"="eum" \
+</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "PATCH",
+    "data": {
+        "name": "eum"
+},
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PATCH api/users</code></p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>required</td>
+<td>Minimum: <code>6</code> Maximum: <code>100</code></td>
+</tr>
+</tbody>
+</table>
+<!-- END_23e684e4851557a8b058b188818dcb9d -->
+<!-- START_09a889ad3c7b5434f4d3fd3d31a924c3 -->
+<h2>Remove a user from a database</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE "http://localhost/api/users" \
+-H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://localhost/api/users",
+    "method": "DELETE",
+    "headers": {
+        "accept": "application/json"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+});</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE api/users</code></p>
+<!-- END_09a889ad3c7b5434f4d3fd3d31a924c3 -->
 <!-- START_7c0b7d3d0d31f5dd9b2ca9e2a7496106 -->
 <h2>Get all projects belong to the authenticated user.</h2>
 <blockquote>

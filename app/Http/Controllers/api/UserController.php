@@ -1,38 +1,33 @@
 <?php
 
 namespace App\Http\Controllers\api;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
+     * Get all the users in the database
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $users = User::with('roles')->all();
+
+        return response()->json($users, 200);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Add a new user to the database.
      *
+     * @param UserRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
 
         // todo validate
@@ -67,47 +62,122 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get all details of a user; in-depth
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Response
      */
     public function show($id)
     {
-        //
+        $user = User::with([
+            'roles', 'accounts', 'projects', 'payouts'
+        ])->find($id);
+
+        if ($user == null)
+        {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'User not found !',
+                'code' => 400
+            ], 400);
+        }
+        else
+        {
+            return response()->json([
+                'status' => 'error',
+                'data' => $user,
+                'code' => 200
+            ], 200);
+        }
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Update a user specified.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @description Only HRs and Admins can access this route.
+     *
+     * @param UserRequest $request
+     * @param User $user
+     * @return \Response
      */
-    public function edit($id)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        if ($user == null)
+        {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'User not found'
+            ], 400);
+        }
+        else
+        {
+            $userUpdate = $user->update($request->all());
+
+            $data = null;
+
+            if ($userUpdate)
+            {
+                $data = [
+                    'status' => 'success',
+                    'data' => $user,
+                    'code' => 200
+                ];
+            }
+            else
+            {
+                $data = [
+                    'status' => 'success',
+                    'message' => 'User couldnt be updated.',
+                    'code' => 400
+                ];
+            }
+        }
+
+        return response()->json($data, $data['code']);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Remove a user from a database
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @description Access is restricted to HRs and Admins
+     *
+     * @param User $user
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
-    public function update(Request $request, $id)
+    public function destroy(User $user)
     {
-        //
-    }
+        if ($user == null)
+        {
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+            return response()->json([
+                'status' => 'error',
+                'message' => 'User not found'
+            ], 400);
+
+        }
+        else
+        {
+
+            $userDeleted = $user->delete();
+
+            if ($userDeleted)
+            {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'User deleted successfully',
+                    'code' => 200
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'User deletion failed',
+                    'code' => 200
+                ]);
+            }
+
+        }
     }
 }
