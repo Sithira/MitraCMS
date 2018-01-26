@@ -54,12 +54,12 @@
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/login" \
+<pre><code class="language-bash">curl -X POST "http://mitracms.localhost/api/login" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/login",
+    "url": "http://mitracms.localhost/api/login",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -77,12 +77,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/get-details" \
+<pre><code class="language-bash">curl -X POST "http://mitracms.localhost/api/get-details" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/get-details",
+    "url": "http://mitracms.localhost/api/get-details",
     "method": "POST",
     "headers": {
         "accept": "application/json"
@@ -100,12 +100,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/users" \
+<pre><code class="language-bash">curl -X GET "http://mitracms.localhost/api/users" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users",
+    "url": "http://mitracms.localhost/api/users",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -130,12 +130,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/users/{user}" \
+<pre><code class="language-bash">curl -X GET "http://mitracms.localhost/api/users/{user}" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users/{user}",
+    "url": "http://mitracms.localhost/api/users/{user}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -160,14 +160,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/users" \
+<pre><code class="language-bash">curl -X POST "http://mitracms.localhost/api/users" \
 -H "Accept: application/json" \
     -d "name"="ut" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users",
+    "url": "http://mitracms.localhost/api/users",
     "method": "POST",
     "data": {
         "name": "ut"
@@ -207,14 +207,14 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PATCH "http://localhost/api/users" \
+<pre><code class="language-bash">curl -X PATCH "http://mitracms.localhost/api/users" \
 -H "Accept: application/json" \
     -d "name"="eum" \
 </code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users",
+    "url": "http://mitracms.localhost/api/users",
     "method": "PATCH",
     "data": {
         "name": "eum"
@@ -254,12 +254,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE "http://localhost/api/users" \
+<pre><code class="language-bash">curl -X DELETE "http://mitracms.localhost/api/users" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/users",
+    "url": "http://mitracms.localhost/api/users",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -277,12 +277,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/projects" \
+<pre><code class="language-bash">curl -X GET "http://mitracms.localhost/api/projects" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/projects",
+    "url": "http://mitracms.localhost/api/projects",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -307,12 +307,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/projects/{project}" \
+<pre><code class="language-bash">curl -X GET "http://mitracms.localhost/api/projects/{project}" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/projects/{project}",
+    "url": "http://mitracms.localhost/api/projects/{project}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -337,7 +337,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/projects" \
+<pre><code class="language-bash">curl -X POST "http://mitracms.localhost/api/projects" \
 -H "Accept: application/json" \
     -d "name"="vel" \
     -d "submission_date"="vel" \
@@ -348,7 +348,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/projects",
+    "url": "http://mitracms.localhost/api/projects",
     "method": "POST",
     "data": {
         "name": "vel",
@@ -413,7 +413,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PATCH "http://localhost/api/projects/edit" \
+<pre><code class="language-bash">curl -X PATCH "http://mitracms.localhost/api/projects/edit" \
 -H "Accept: application/json" \
     -d "name"="tempore" \
     -d "submission_date"="tempore" \
@@ -424,7 +424,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/projects/edit",
+    "url": "http://mitracms.localhost/api/projects/edit",
     "method": "PATCH",
     "data": {
         "name": "tempore",
@@ -489,7 +489,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE "http://localhost/api/projects/{project}" \
+<pre><code class="language-bash">curl -X DELETE "http://mitracms.localhost/api/projects/{project}" \
 -H "Accept: application/json" \
     -d "name"="odio" \
     -d "submission_date"="odio" \
@@ -500,7 +500,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/projects/{project}",
+    "url": "http://mitracms.localhost/api/projects/{project}",
     "method": "DELETE",
     "data": {
         "name": "odio",
@@ -565,12 +565,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/projects/{project}/phase" \
+<pre><code class="language-bash">curl -X GET "http://mitracms.localhost/api/projects/{project}/phase" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/projects/{project}/phase",
+    "url": "http://mitracms.localhost/api/projects/{project}/phase",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -595,12 +595,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X GET "http://localhost/api/projects/{project}/phase/{phase}" \
+<pre><code class="language-bash">curl -X GET "http://mitracms.localhost/api/projects/{project}/phase/{phase}" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/projects/{project}/phase/{phase}",
+    "url": "http://mitracms.localhost/api/projects/{project}/phase/{phase}",
     "method": "GET",
     "headers": {
         "accept": "application/json"
@@ -625,7 +625,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/projects/{project}/phase" \
+<pre><code class="language-bash">curl -X POST "http://mitracms.localhost/api/projects/{project}/phase" \
 -H "Accept: application/json" \
     -d "name"="aut" \
     -d "description"="aut" \
@@ -633,7 +633,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/projects/{project}/phase",
+    "url": "http://mitracms.localhost/api/projects/{project}/phase",
     "method": "POST",
     "data": {
         "name": "aut",
@@ -680,7 +680,7 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X PATCH "http://localhost/api/projects/{project}/phase/edit" \
+<pre><code class="language-bash">curl -X PATCH "http://mitracms.localhost/api/projects/{project}/phase/edit" \
 -H "Accept: application/json" \
     -d "name"="possimus" \
     -d "description"="possimus" \
@@ -688,7 +688,7 @@ $.ajax(settings).done(function (response) {
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/projects/{project}/phase/edit",
+    "url": "http://mitracms.localhost/api/projects/{project}/phase/edit",
     "method": "PATCH",
     "data": {
         "name": "possimus",
@@ -735,12 +735,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X DELETE "http://localhost/api/projects/{project}/phase" \
+<pre><code class="language-bash">curl -X DELETE "http://mitracms.localhost/api/projects/{project}/phase" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/projects/{project}/phase",
+    "url": "http://mitracms.localhost/api/projects/{project}/phase",
     "method": "DELETE",
     "headers": {
         "accept": "application/json"
@@ -758,12 +758,12 @@ $.ajax(settings).done(function (response) {
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST "http://localhost/api/logout" \
+<pre><code class="language-bash">curl -X POST "http://mitracms.localhost/api/logout" \
 -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "http://localhost/api/logout",
+    "url": "http://mitracms.localhost/api/logout",
     "method": "POST",
     "headers": {
         "accept": "application/json"
