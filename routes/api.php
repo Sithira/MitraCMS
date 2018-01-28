@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth:api'], function()
 
         Route::patch('/', 'api\UserController@update');
 
-        Route::delete('/', 'api\UserController@destroy');
+        Route::delete('/{user}', 'api\UserController@destroy');
 
     });
 
@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth:api'], function()
 
         Route::patch('/edit', 'api\ProjectController@update');
 
-        Route::delete('/{project}', 'api\ProjectController@store');
+        Route::delete('/{project}', 'api\ProjectController@destroy');
 
         // Phases routes
         Route::group(['prefix' => '/{project}/phase'], function() {
@@ -66,6 +66,20 @@ Route::group(['middleware' => 'auth:api'], function()
 
         });
 
+        // Payout routes
+        Route::group(['prefix' => '/payouts/'], function () {
+
+            Route::get('/', 'api\PayoutController@index');
+
+            Route::get('/{payout}', 'api\PayoutController@show');
+
+            Route::post('/', 'api\PayoutController@store');
+
+            Route::patch('/', 'api\PayoutController@update');
+
+            Route::delete('/{payout}', 'api\PayoutController@destroy');
+
+        });
     });
 
     Route::post('logout', 'api\LoginController@logout');

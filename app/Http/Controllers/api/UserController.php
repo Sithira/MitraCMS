@@ -122,6 +122,8 @@ class UserController extends Controller
         {
             $userUpdate = $user->update($request->all());
 
+            //dd($userUpdate);
+
             $data = null;
 
             if ($userUpdate)
@@ -135,7 +137,7 @@ class UserController extends Controller
             else
             {
                 $data = [
-                    'status' => 'success',
+                    'status' => 'error',
                     'message' => 'User couldnt be updated.',
                     'code' => 400
                 ];
@@ -156,6 +158,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+
         if ($user == null)
         {
 
@@ -183,7 +186,7 @@ class UserController extends Controller
                 return response()->json([
                     'status' => 'error',
                     'message' => 'User deletion failed',
-                    'code' => 200
+                    'code' => 400
                 ]);
             }
 

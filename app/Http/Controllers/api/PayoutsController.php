@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\api;
 
 use App\Models\Payment;
-use App\Models\Phase;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class PayoutsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get all payouts belong to the user
      *
      * @return \Illuminate\Http\Response
      */
@@ -28,24 +27,14 @@ class PayoutsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Add a new payout.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        //make the payout with the given data
         $payout = Payment::create($request->all());
 
         $data = null;
@@ -71,7 +60,7 @@ class PayoutsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get a single payout
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -107,28 +96,24 @@ class PayoutsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Update the payout details
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param Payment $payout
+     * @param PayoutRequest|Request $request
+     * @param $id
      * @return \Illuminate\Http\Response
      * @internal param int $id
      */
-    public function update(Request $request, Payment $payout)
+    public function update(PayoutRequest $request, $id)
     {
+        //get the payout details
+        $payout = Auth::user()
+            ->payouts
+            ->where('id',$id)
+            ->first();
+
         $data = null;
 
+        //check for project instance nullability
         if($payout == null)
         {
             return response()->json([
@@ -165,7 +150,7 @@ class PayoutsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the payout
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -192,11 +177,24 @@ class PayoutsController extends Controller
         }
         else
         {
-            $data = [
-                'status' => 'success',
-                'code' => 200,
-                'message' => "Payout removed."
-            ];
+            $payoutDeleted = $payout->delete();
+
+            if($payoutDeleted)
+            {
+                $data = [
+                    'status' => 'success',
+                    'code' => 200,
+                    'message' => "Payout removed."
+                ];
+            }
+            else
+            {
+                return response()->json([
+                    'status' => 'error',
+                    'code' => 400,
+                    'message' => "Payout cannot be removed."
+                ]);
+            }
         }
 
         // return the response.

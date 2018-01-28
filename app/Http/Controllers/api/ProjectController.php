@@ -112,22 +112,6 @@ class ProjectController extends Controller
      */
     public function update(ProjectRequest $request, $id)
     {
-        //todo: access check and validation.
-
-        // request validation.
-        $validator = Validator::make($request->all(), []);
-
-        // if validator fails, throw the error.
-        if ($validator->fails())
-        {
-            // build the response.
-            return response()->json([
-                'status' => 'error',
-                'message' => $validator->failed(),
-                'code' => 400
-            ]);
-        }
-
         // get the project details.
         $project = Auth::user()
             ->projects
@@ -148,11 +132,26 @@ class ProjectController extends Controller
         }
         else
         {
-            $data = [
-                'status' => 'success',
-                'data' => $project,
-                'code' => 200
-            ];
+            $projectUpdate = $project->update($request->all());
+
+            $data = null;
+
+            if ($projectUpdate)
+            {
+                $data = [
+                    'status' => 'success',
+                    'data' => $project,
+                    'code' => 200
+                ];
+            }
+            else
+            {
+                $data = [
+                    'status' => 'error',
+                    'message' => 'Project couldnt be updated.',
+                    'code' => 400
+                ];
+            }
         }
 
         // return the json response.
@@ -163,8 +162,9 @@ class ProjectController extends Controller
     /**
      * Delete the project
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
+     * @internal param Project $project
      */
     public function destroy($id)
     {
@@ -189,11 +189,25 @@ class ProjectController extends Controller
         }
         else
         {
-            $data = [
-                'status' => 'success',
-                'code' => 200,
-                'message' => "project and it's assets have been removed."
-            ];
+            $projectDeleted = $project->delete();
+
+            if($projectDeleted)
+            {
+                return response()->json([
+                    'status' => 'success',
+                    'code' => 200,
+                    'message' => "project and it's assets have been removed."
+                ]);
+            }
+            else
+            {
+                return response()->json([
+                    'status' => 'error',
+                    'code' => 400,
+                    'message' => "project cannot be removed."
+                ]);
+            }
+
         }
 
         // return the response.
