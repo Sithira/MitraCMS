@@ -116,7 +116,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "Unauthenticated."
+    "success": false,
+    "error": {
+        "code": 0,
+        "message": "Unauthenticated."
+    }
 }
 ```
 
@@ -158,7 +162,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "Unauthenticated."
+    "success": false,
+    "error": {
+        "code": 0,
+        "message": "Unauthenticated."
+    }
 }
 ```
 
@@ -179,6 +187,8 @@ $.ajax(settings).done(function (response) {
 curl -X POST "http://mitracms.localhost/api/users" \
 -H "Accept: application/json" \
     -d "name"="ut" \
+    -d "email"="nakia.mcclure@example.org" \
+    -d "password"="ut" \
 
 ```
 
@@ -189,7 +199,9 @@ var settings = {
     "url": "http://mitracms.localhost/api/users",
     "method": "POST",
     "data": {
-        "name": "ut"
+        "name": "ut",
+        "email": "nakia.mcclure@example.org",
+        "password": "ut"
 },
     "headers": {
         "accept": "application/json"
@@ -210,6 +222,8 @@ $.ajax(settings).done(function (response) {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | Minimum: `6` Maximum: `100`
+    email | email |  required  | Minimum: `10`
+    password | string |  required  | Minimum: `6`
 
 <!-- END_12e37982cc5398c7100e59625ebb5514 -->
 
@@ -222,6 +236,8 @@ Parameter | Type | Status | Description
 curl -X PATCH "http://mitracms.localhost/api/users" \
 -H "Accept: application/json" \
     -d "name"="eum" \
+    -d "email"="amiya.schuppe@example.com" \
+    -d "password"="eum" \
 
 ```
 
@@ -232,7 +248,9 @@ var settings = {
     "url": "http://mitracms.localhost/api/users",
     "method": "PATCH",
     "data": {
-        "name": "eum"
+        "name": "eum",
+        "email": "amiya.schuppe@example.com",
+        "password": "eum"
 },
     "headers": {
         "accept": "application/json"
@@ -253,6 +271,8 @@ $.ajax(settings).done(function (response) {
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     name | string |  required  | Minimum: `6` Maximum: `100`
+    email | email |  required  | Minimum: `10`
+    password | string |  required  | Minimum: `6`
 
 <!-- END_23e684e4851557a8b058b188818dcb9d -->
 
@@ -319,7 +339,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "Unauthenticated."
+    "success": false,
+    "error": {
+        "code": 0,
+        "message": "Unauthenticated."
+    }
 }
 ```
 
@@ -361,7 +385,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "Unauthenticated."
+    "success": false,
+    "error": {
+        "code": 0,
+        "message": "Unauthenticated."
+    }
 }
 ```
 
@@ -568,7 +596,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "Unauthenticated."
+    "success": false,
+    "error": {
+        "code": 0,
+        "message": "Unauthenticated."
+    }
 }
 ```
 
@@ -610,7 +642,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "message": "Unauthenticated."
+    "success": false,
+    "error": {
+        "code": 0,
+        "message": "Unauthenticated."
+    }
 }
 ```
 

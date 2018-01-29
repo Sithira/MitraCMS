@@ -51,6 +51,20 @@ Route::group(['middleware' => 'auth:api'], function()
 
         Route::delete('/{project}', 'api\ProjectController@destroy');
 
+        // Requests Routes ..
+        Route::group(['prefix' => '/{project}/requests'], function () {
+
+            Route::get('/', 'api\RequestController@index');
+
+            Route::get('/{request}/', 'api\RequestController@show');
+
+            Route::post('/', 'api\RequestController@store');
+
+            Route::delete('/', 'api\RequestController@destroy');
+
+        });
+
+
         // Phases routes
         Route::group(['prefix' => '/{project}/phase'], function() {
 

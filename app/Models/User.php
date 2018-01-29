@@ -36,6 +36,14 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
+ * @property string $dob
+ * @property string $address
+ * @property string $enrolled_year
+ * @property int $HR_rating
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereDob($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEnrolledYear($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereHRRating($value)
  */
 class User extends Authenticatable
 {

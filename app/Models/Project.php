@@ -26,6 +26,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereReceivedDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereSubmissionDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereUpdatedAt($value)
+ * @property int $status
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Request[] $requests
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereStatus($value)
  */
 class Project extends Model
 {
@@ -41,8 +44,23 @@ class Project extends Model
         return $this->hasMany(Phase::class);
     }
 
+    /**
+     * Get the account that a project belongs to
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function account()
     {
         return $this->belongsTo(Account::class);
+    }
+
+    /**
+     * Get all the requests a project has
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function requests()
+    {
+        return $this->hasMany(Request::class);
     }
 }
