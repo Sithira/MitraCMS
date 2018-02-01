@@ -23,6 +23,8 @@ Route::group(['middleware' => 'auth:api'], function()
 {
     Route::post('get-details', 'api\LoginController@getDetails');
 
+    Route::get('/notifications', 'api\UserController@getNotifications');
+
     // User routes
     Route::group(['prefix' => '/users/'], function () {
 
