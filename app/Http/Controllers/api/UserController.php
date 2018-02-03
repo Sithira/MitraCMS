@@ -6,6 +6,9 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
+use Laravel\Passport\AuthCode;
+use Laravel\Passport\Bridge\AccessToken;
+use Laravel\Passport\Token;
 
 class UserController extends Controller
 {
@@ -194,8 +197,65 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Get the notifications of the logged in user
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getNotifications()
     {
-        return Auth::user()->notifications;
+
+        $notifications =  Auth::user()->notifications;
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $notifications
+        ]);
+
     }
+
+    /**
+     * Mark notification as READ
+     *
+     * @param $notification
+     */
+    public function readNotification($notification)
+    {
+
+        $notification = Auth::user()
+            ->notifications
+            ->where('id', $notification)
+            ->first();
+
+        if ($notification != null)
+        {
+            $notification->markAsRead();
+        }
+
+    }
+
+    public function checkAuthToken(Request $request)
+    {
+
+        $currentToken = Token::where('id', $request->token)->first();
+
+        if ($currentToken == null || $currentToken->revoked)
+        {
+            return response()->json([
+                "status" => "success",
+                "data" => [
+                    "status" => false,
+                    "token" => $request->all()
+                ]
+            ]);
+        }
+
+        return response()->json([
+            "status" => "success",
+            "data" => [
+                "status" => true
+            ]
+        ]);
+    }
+
 }

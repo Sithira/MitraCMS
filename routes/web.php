@@ -19,3 +19,12 @@ Route::get('/', function () {
 //Route::post('register', 'API\PassportController@register');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/test', function (\Illuminate\Http\Request $request) {
+
+
+    //return (new \App\Http\Controllers\api\UserController())->checkAuthToken($request);
+
+    //\App\Models\User::find(1)->notify(new \App\Notifications\ProjectCompleted());
+
+});

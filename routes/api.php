@@ -19,11 +19,16 @@ use Illuminate\Http\Request;
 
 Route::post('login', 'api\LoginController@login');
 
+Route::post('/check-token', 'api\UserController@checkAuthToken');
+
 Route::group(['middleware' => 'auth:api'], function()
 {
+
     Route::post('get-details', 'api\LoginController@getDetails');
 
     Route::get('/notifications', 'api\UserController@getNotifications');
+
+    //Route::get('/notification/{notification}', '');
 
     // User routes
     Route::group(['prefix' => '/users/'], function () {
@@ -66,7 +71,6 @@ Route::group(['middleware' => 'auth:api'], function()
 
         });
 
-
         // Phases routes
         Route::group(['prefix' => '/{project}/phase'], function() {
 
@@ -85,15 +89,15 @@ Route::group(['middleware' => 'auth:api'], function()
         // Payout routes
         Route::group(['prefix' => '/payouts/'], function () {
 
-            Route::get('/', 'api\PayoutController@index');
+            Route::get('/', 'api\PayoutsController@index');
 
-            Route::get('/{payout}', 'api\PayoutController@show');
+            Route::get('/{payout}', 'api\PayoutsController@show');
 
-            Route::post('/', 'api\PayoutController@store');
+            Route::post('/', 'api\PayoutsController@store');
 
-            Route::patch('/', 'api\PayoutController@update');
+            Route::patch('/', 'api\PayoutsController@update');
 
-            Route::delete('/{payout}', 'api\PayoutController@destroy');
+            Route::delete('/{payout}', 'api\PayoutsController@destroy');
 
         });
     });
